@@ -1,0 +1,131 @@
+.app {
+  padding: 20px 80px;
+
+  .search {
+    position: relative;
+    width: 100%;
+    max-width: 631px;
+
+    input {
+      outline: 1px solid #5A5C66;;
+      border: none;
+      width: 100%;
+      background: #5A5C66;
+      padding: 18px 26px;
+      color: #B2B7BF;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 137.687%;
+      transition: .2s;
+
+      &:focus {
+        outline: 1px solid #2b3642;
+      }
+      &::placeholder {
+        color: #B2B7BF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 137.687%;
+      }
+    }
+    .icon {
+      background: transparent;
+      cursor: pointer;
+      border: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+    }
+  }
+
+  .table {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 5fr;
+
+
+    & > div {
+      padding: 13px;
+      display: flex;
+      align-items: center;
+    }
+    .head {
+      color: #fff;
+      background: #474955;
+
+      button {
+        position: relative;
+        background: transparent;
+        cursor: pointer;
+        padding-right: 30px;
+        border: none;
+        color: #fff;
+
+        svg {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          //transform: rotate(180deg);
+          right: 0;
+        }
+      }
+    }
+    .body {
+      color: #474955;
+      font-size: 13px;
+      font-weight: 500;
+      border-right: 1px solid #E3E6EC;
+      border-bottom: 1px solid #E3E6EC;
+
+      &.id {
+        justify-content: center;
+        border-left: 1px solid #E3E6EC;
+      }
+    }
+  }
+
+  .pagination {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    
+    button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      color: #474955;
+      font-size: 20px;
+      transition: .3s;
+
+      &:hover {
+        color: #7EBC3C;
+      }
+    }
+
+    & > div {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+
+      button {
+        font-size: 18px;
+        padding: 5px;
+        color: #474955;
+        transition: .3s;
+        font-style: italic;
+        font-weight: 700;
+
+        &.active {
+          color: #7EBC3C;
+        }
+      }
+    }
+  }
+}
