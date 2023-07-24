@@ -31,9 +31,17 @@ const Pagination = () => {
 
   return (
     <div className="pagination">
-      <button onClick={() => dispatch(setPage(currentPage - 1))}>Назад</button>
+      <button onClick={() => dispatch(setPage(currentPage - 1))}><p>Назад</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12" fill="none">
+          <line x1="7.09525" y1="0.438392" x2="1.26869" y2="6.26495" stroke="#474955"/>
+          <line x1="1.43839" y1="5.73129" x2="7.09525" y2="11.3881" stroke="#474955"/>
+        </svg>
+      </button>
       <div>{renderPaginationButtons()}</div>
-      <button onClick={() => dispatch(setPage(currentPage + 2))}>Далее</button>
+      <button onClick={() => dispatch(setPage(currentPage + 2))}><p>Далее</p><svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+        <line x1="0.561608" y1="11.3882" x2="6.38817" y2="5.56162" stroke="#474955"/>
+        <line x1="6.21847" y1="6.09528" x2="0.561614" y2="0.438429" stroke="#474955"/>
+      </svg></button>
     </div>
   );
 };
