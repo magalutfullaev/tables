@@ -6,7 +6,7 @@ import {RootState} from "../utils/typest";
 const Pagination = () => {
   const [totalPages, setTotalPages] = useState<number>(0);
   const dispatch = useDispatch();
-  const {posts, currentPage} = useSelector((state: RootState) => state.slice);
+  const {posts, currentPage, error, loading} = useSelector((state: RootState) => state.slice);
   useEffect(() => {
     setTotalPages(posts.length / 10)
   }, [posts]);
@@ -28,6 +28,12 @@ const Pagination = () => {
 
     return buttons;
   };
+
+  if (!posts.length || error || loading){
+    return (
+      <div></div>
+    )
+  }
 
   return (
     <div className="pagination">

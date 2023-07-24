@@ -40,6 +40,7 @@ const slice = createSlice({
         state.loading = true
       })
       .addCase(fetchPosts.rejected, (state) => {
+        state.loading = false
         state.error = true
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {

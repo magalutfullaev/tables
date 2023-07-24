@@ -13,9 +13,9 @@ const svgDesc = <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" vi
 </svg>
 
 const Table = () => {
-  const {posts, currentPage, search} = useSelector((state: RootState) => state.slice);
+  const {posts, currentPage, search, loading, error} = useSelector((state: RootState) => state.slice);
   const [sort, setSort] = useState<{ title: 'title' | 'body' | 'id', direction: boolean }>({
-    title: 'title',
+    title: 'id',
     direction: false
   });
 
@@ -45,7 +45,30 @@ const Table = () => {
 
   const filteredPosts = sortedPosts().filter(post => post.title.includes(search));
 
-  const thisPage = filteredPosts.slice((currentPage * 10) - 10, currentPage * 10);
+  const thisPage = filteredPosts.slice((currentPage * 10) - 10, currentPage * 10)
+
+
+  if (loading) {
+    return (
+      <div className='status'>
+        Загрузка...
+      </div>
+    )
+  }
+  if (error) {
+    return (
+      <div className='status'>
+        Что-то пошло не так(
+      </div>
+    )
+  }
+  if (!filteredPosts.length) {
+    return (
+      <div className='status'>
+        Ничего не найдено
+      </div>
+    )
+  }
 
   return (
     <div className="table">
